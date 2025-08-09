@@ -13,3 +13,9 @@ class FeedPage(BasePage):
         Метод клика по кошачьему корму на странице с кормами.
         """
         self.find_clickable_element(self.locator.feed_purina).click()
+
+    def click_on_cat_wet_feed(self):
+        """
+        Метод клика по влажному кошачьему корму на странице с кормами.
+        """
+        self.find_clickable_element(self.locator.wet_feed_purina).click()

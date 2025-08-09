@@ -18,7 +18,7 @@ from libs.pages.main_page import MainPage
 from libs.pages.authorize_page import AuthorizePage
 
 
-def test_select_feed_for_cat(browser_chrome):
+def test_select_cat_fly_feed(browser_chrome):
 
     main_page = MainPage(browser_chrome)
     auth_page = AuthorizePage(browser_chrome)

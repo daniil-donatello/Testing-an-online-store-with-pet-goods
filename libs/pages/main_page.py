@@ -34,3 +34,9 @@ class MainPage(BasePage):
         Метод клика по пункту меню 'Сухие корма'.
         """
         self.find_clickable_element(self.locator.fly_food).click()
+
+    def click_wet_food_menu_item(self):
+        """
+        Метод клика по пункту меню 'Влажный корм, паучи, консервы'.
+        """
+        self.find_clickable_element(self.locator.wet_food).click()
