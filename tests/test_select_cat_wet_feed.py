@@ -15,6 +15,7 @@ from libs.locators.filter_page_locators import FilterPageLocators
 from libs.pages.cart_page import CartPage
 from libs.pages.main_page import MainPage
 from libs.pages.authorize_page import AuthorizePage
+from libs.logger.logger import Logger
 
 
 def test_select_cat_wet_feed(browser_chrome):
@@ -28,6 +29,7 @@ def test_select_cat_wet_feed(browser_chrome):
     good_page = GoodPage(browser_chrome)
 
     # Авторизациия
+    Logger.add_start_step('Авторизация')
     Checks.is_true(main_page.is_main_logo_visible())
     main_page.click_account_logo()
     Checks.is_true(auth_page.is_account_logo_visible())
@@ -72,5 +74,6 @@ def test_select_cat_wet_feed(browser_chrome):
     time.sleep(1)
     Checks.is_true(good_page.is_not_available_text_visible())
     Checks.is_true(good_page.is_notify_me_button_visible())
+    Logger.add_end_step('На странице товара есть текст "Нет в наличии" и кнопка "Оповестить меня"')
 
     time.sleep(5)

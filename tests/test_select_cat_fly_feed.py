@@ -1,5 +1,7 @@
 import time
 
+import allure
+
 from libs.checks.checks import Checks
 from libs.enums.emails import Emails
 from libs.enums.food_purpose import FoodPurpose
@@ -16,6 +18,7 @@ from libs.locators.filter_page_locators import FilterPageLocators
 from libs.pages.cart_page import CartPage
 from libs.pages.main_page import MainPage
 from libs.pages.authorize_page import AuthorizePage
+from libs.logger.logger import Logger
 
 
 def test_select_cat_fly_feed(browser_chrome):
@@ -29,6 +32,7 @@ def test_select_cat_fly_feed(browser_chrome):
     good_page = GoodPage(browser_chrome)
 
     # Авторизациия
+    Logger.add_start_step('Авторизация')
     Checks.is_true(main_page.is_main_logo_visible())
     main_page.click_account_logo()
     Checks.is_true(auth_page.is_account_logo_visible())
@@ -84,5 +88,6 @@ def test_select_cat_fly_feed(browser_chrome):
         cart_page.extract_text_from_web_element_full_sum(),
         cart_page.extract_text_from_web_element_sum()
     )
+    Logger.add_end_step('Сравнение итоговой суммы и суммы добавленных товаров в корзину')
 
     time.sleep(5)
